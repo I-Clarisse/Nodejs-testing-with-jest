@@ -1,5 +1,6 @@
 let { checkEmail, createUser, editTodo, createTodo, deleteTodo, deleteUser } = require('../mongodb/services')
 let { getHashedPassword } = require('./function')
+
 async function registerUser(req, res) {
     try {
         let {name, email, password, confirmPassword } = req.body
