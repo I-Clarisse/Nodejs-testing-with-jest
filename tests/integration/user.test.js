@@ -3,7 +3,7 @@ const { connectMongoDb } = require("../../mongodb");
 const supertest = require("supertest");
 const mongoose = require("mongoose");
 
-describe('USER API INTEGRATION TESTS', () => {
+describe('USER API END-TO-END TESTS', () => {
   
     beforeAll(async()=> {
         await connectMongoDb();
@@ -15,7 +15,7 @@ describe('USER API INTEGRATION TESTS', () => {
 
     it("POST /users/register", async ()=> {
         await supertest(app).post("/users/register")
-            .send({ name: "John", email: "Doesioio", password: "1234567", confirmPassword: "1234567" })
+            .send({ name: "John", email: "Doesio", password: "1234567", confirmPassword: "1234567" })
             .set('Accept', 'application/json')
             .expect('Content-Type', /text/)
             .expect(201);
